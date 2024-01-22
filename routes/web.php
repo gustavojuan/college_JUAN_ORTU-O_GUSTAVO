@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\SubjectController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -21,3 +22,6 @@ Route::get('test', function (){
     $subjects= \App\Models\Subject::with('course')->get();
     dd($subjects);
 });
+
+
+Route::resource('subjects', SubjectController::class);

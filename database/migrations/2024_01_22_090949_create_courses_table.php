@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
-            $table->string('ref',3);
+            $table->string('ref',3)->unique();
             $table->string('name', 255);
             $table->integer('hours');
             $table->boolean('practices');

@@ -6,20 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Subject extends Model
+class Student extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $fillable = ['dni', 'name','lastname','email','phone'];
 
-
-    public function course()
+    public function subjects()
     {
-        return $this->belongsTo(Course::class);
-    }
-
-
-    public function students()
-    {
-        return $this->belongsToMany(Student::class);
+        return $this->belongsToMany(Subject::class);
     }
 }
