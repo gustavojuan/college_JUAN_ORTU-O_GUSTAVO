@@ -13,4 +13,9 @@ class Course extends Model
     protected $fillable  = [
         'ref','name','hours','practices'
     ];
+
+    public function subjects()
+    {
+        return $this->hasMany(Subject::class);
+    }
 }

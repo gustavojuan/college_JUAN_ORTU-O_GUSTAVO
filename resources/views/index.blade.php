@@ -54,8 +54,17 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     @foreach($courses as $course)
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">{{$course->name}}</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{$course->name}}
+                            </a>
+
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @foreach($course->subjects as $subject)
+                                    <li><a class="dropdown-item" href="#">{{$subject->name}}</a></li>
+                                @endforeach
+
+                            </ul>
                         </li>
                     @endforeach
                 </ul>

@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [CourseController::class ,'index']);
+
+Route::get('test', function (){
+    $subjects= \App\Models\Subject::with('course')->get();
+    dd($subjects);
+});
